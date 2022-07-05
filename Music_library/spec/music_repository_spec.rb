@@ -28,4 +28,14 @@ describe MusicRepository do
     expect(artists[1].genre).to eq ('Pop')
 
   end
+
+  it "SQL find method " do
+    repo = MusicRepository.new
+
+    artist = repo.find(1)
+
+    expect(artist.id).to eq(1)
+    expect(artist.name).to eq('Pixies')
+    expect(artist.genre).to eq('Rock')
+  end
 end

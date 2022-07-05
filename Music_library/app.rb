@@ -5,7 +5,9 @@ require_relative 'lib/music_repository.rb'
 DatabaseConnection.connect('music_library')
 
 music_repository = MusicRepository.new
-artist_arr = music_repository.all
+# artist_arr = music_repository.all
 
 
-artist_arr.each{|artist| puts "#{artist.id} - #{artist.name} - #{artist.genre}"}
+# artist_arr.each{|artist| puts "#{artist.id} - #{artist.name} - #{artist.genre}"}
+
+solo_artist = music_repository.find(3)

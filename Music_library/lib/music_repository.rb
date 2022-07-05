@@ -19,8 +19,19 @@ class MusicRepository
       artists << artist
     end
     return artists
+  end
 
-    # Returns an array of Student objects.
+  def find(id)
+    sql = 'SELECT * FROM artists WHERE id = $1;'
+    param = [id]
+    result_set = DatabaseConnection.exec_params(sql, param)
+    result = result_set[0]
+    artist = Artist.new
+    artist.id = result['id'].to_i
+    artist.name = result['name']
+    artist.genre = result['genre']
+
+    return p artist
   end
 
 end

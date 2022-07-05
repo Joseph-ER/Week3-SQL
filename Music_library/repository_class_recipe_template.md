@@ -177,8 +177,8 @@ repo = MusicRepository.new
 artist = repo.find(1)
 
 artist.id # =>  1
-artist.name # =>  'David'
-artist.genre # =>  'April 2022'
+artist.name # =>  'Pixies'
+artist.genre # =>  'Rock'
 
 # Add more examples for each method
 ```
