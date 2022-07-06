@@ -2,22 +2,6 @@
 
 _Copy this recipe template to design and implement Model and Repository classes for a database table._
 
-## 1. Design and create the Table
-
-If the table is already created in the database, you can skip this step.
-
-Otherwise, [follow this recipe to design and create the SQL schema for your table](./single_table_design_recipe_template.md).
-
-*In this template, we'll use an example table `students`*
-
-```
-# EXAMPLE
-
-Table: artist
-
-Columns:
-id | name | genre
-```
 
 ## 2. Create Test SQL seeds
 
@@ -56,16 +40,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: artists
+# Table name: recipes
 
 # Model class
-# (in lib/artists.rb)
+# (in lib/recipes.rb)
 class Artist
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/recipe_repository.rb)
+class RecipeRepository
 end
 ```
 
@@ -80,7 +64,7 @@ Define the attributes of your Model class. You can usually map the table columns
 # Model class
 # (in lib/artists.rb)
 
-class Artist
+class Recipe
 
   # Replace the attributes by your own columns.
   attr_accessor :id, :name, :genre
@@ -110,7 +94,7 @@ Using comments, define the method signatures (arguments and return value) and wh
 # Repository class
 # (in lib/artist_repository.rb)
 
-class ArtistRepository
+class RecipeRepository
 
   # Selecting all records
   # No arguments
