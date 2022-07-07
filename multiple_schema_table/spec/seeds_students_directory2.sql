@@ -19,46 +19,35 @@
 
 --table name- cohorts
 -- columns- name(text), start_date(text)
-DROP TABLE IF EXISTS "public"."students";
-DROP TABLE IF EXISTS "public"."cohorts";
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS cohorts;
 -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
 -- Sequence and defined type
 
 
-CREATE TABLE cohorts(
+CREATE TABLE cohorts (
   id SERIAL PRIMARY KEY,
-  cohort text,
-  start_date text
+  name text,
+  starting_date INT4
 );
 
-CREATE TABLE students(
+CREATE TABLE students (
   id SERIAL PRIMARY KEY,
   name text,
   cohort_id int,
   constraint fk_cohort foreign key(cohort_id) references cohorts(id)
 );
 
+INSERT INTO "public"."cohorts"("id", "name", "starting_date") VALUES
+(1, 'June', 2022),
+(2, 'September', 2020);
 
+INSERT INTO  "public"."students"("id","name", "cohort_id") VALUES
+(1,'Joe', 1),
+(2,'Ahmed', 1),
+(3,'Ev', 1),
+(4,'paris', 1),
+(5, 'Symi', 2),
+(6, 'John', 2);
 
-
--- EXAMPLE
--- file: albums_table.sql
-
--- Replace the table name, columm names and types.
-
--- Create the table without the foreign key first.
--- CREATE TABLE artists (
---   id SERIAL PRIMARY KEY,
---   name text,
--- );
-
--- -- Then the table with the foreign key first.
--- CREATE TABLE albums (
---   id SERIAL PRIMARY KEY,
---   title text,
---   release_year int,
--- -- The foreign key name is always {other_table_singular}_id
---   artist_id int,
---   constraint fk_artist foreign key(artist_id) references artists(id)
--- );

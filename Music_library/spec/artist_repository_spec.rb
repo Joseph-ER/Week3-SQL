@@ -96,4 +96,12 @@ describe ArtistRepository do
     repo.delete_album(id_to_delete)
     expect(repo.albums_all.length).to eq(11)
   end
-end
+
+  it "find artist with 1 related album " do
+    repository = ArtistRepository.new
+    artist = repository.find_with_albums(1)
+  
+    expect(artist.name).to eq('Pixies')
+    expect(artist.albums.length).to eq(3)
+    end
+  end
