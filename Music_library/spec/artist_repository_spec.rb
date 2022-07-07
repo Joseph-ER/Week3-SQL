@@ -1,5 +1,5 @@
 require 'database_connection'
-require 'music_repository'
+require 'artist_repository'
 require 'album'
 
 def reset_artist_table
@@ -8,13 +8,13 @@ def reset_artist_table
   connection.exec_params(seed_sql)
 end
 
-describe MusicRepository do
+describe ArtistRepository do
   before(:each) do 
     reset_artist_table
   end
 
   it "SQL query to search and display all artists " do
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
 
     artists = repo.all
 
@@ -31,7 +31,7 @@ describe MusicRepository do
   end
 
   it "SQL find method " do
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
 
     artist = repo.find(1)
 
@@ -42,7 +42,7 @@ describe MusicRepository do
 
   it "create method adds new album" do
 
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
     new_album = Album.new
     new_album.title = 'Trompe le Monde'
     new_album.release_year = 1991
@@ -58,7 +58,7 @@ describe MusicRepository do
 
   it "all albums method" do
 
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
 
     all_albums = repo.albums_all
 
@@ -68,7 +68,7 @@ describe MusicRepository do
   end
 
   it "create artist method adds a new artist " do
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
 
     artist = Artist.new
     artist.name = 'Tom Waits'
@@ -82,7 +82,7 @@ describe MusicRepository do
   end
 
   it "Delete_artist method removes an artist " do
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
     id_to_delete = 1
 
     repo.delete_artist(id_to_delete)
@@ -91,7 +91,7 @@ describe MusicRepository do
   end
 
   it "delete_album method removes an album " do
-    repo = MusicRepository.new
+    repo = ArtistRepository.new
     id_to_delete = 1
     repo.delete_album(id_to_delete)
     expect(repo.albums_all.length).to eq(11)

@@ -3,7 +3,7 @@ require_relative 'artist'
 require 'pg'
 require_relative 'album'
 
-class MusicRepository
+class ArtistRepository
 
   # Selecting all records
   # No arguments

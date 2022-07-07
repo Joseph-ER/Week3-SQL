@@ -6,7 +6,7 @@ class DatabaseConnection
     @connection = PG.connect({host: '127.0.0.1', dbname: database_name})
   end
 
-  def exec_params(query, params)
+  def self.exec_params(query, params)
     @connection.exec_params(query, params)
   end
 

@@ -58,8 +58,8 @@ INSERT INTO "public"."user_accounts"("username", "email") VALUES
 ('Colin', 'colin@anothermail.com'),
 ('Joe','joe@mail.co.uk');
 
-INSERT INTO  "public"."posts"("title","content") VALUES
-('Joseph first post!','This is content'),
-('Joseph second post','This is content'),
-('Colin posting', 'This is content'),
-('Joe post now', 'This is content');
+INSERT INTO  "public"."posts"("title","content", "post_id") VALUES
+('Joseph first post!','This is content', 1),
+('Joseph second post','This is content', 1),
+('Colin posting', 'This is content', 2),
+('Joe post now', 'This is content', 3);
