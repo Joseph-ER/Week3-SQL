@@ -12,8 +12,22 @@ class Application
     @post_repository = post_repository
   end
   def run
-    # post_repo =PostRepository.new
-    # comment_repo = CommentRepository.new
-    # post_repo.find_posts
+     post_repo =PostRepository.new
+     comment_repo = CommentRepository.new
+     found_post = post_repo.find_with_comments(3)
+     @io.puts "Post- #{found_post.title} - #{found_post.content}"
+     @io.puts "Comments-"
+     found_post.comments.each do |comment|
+      @io.puts "#{comment.comment}- #{comment.commentor}"
+     end
+
   end
 end
+
+app = Application.new(
+  'blog',
+  Kernel,
+  PostRepository.new,
+  CommentRepository.new
+)
+app.run
